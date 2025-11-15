@@ -173,7 +173,7 @@ RUN --mount=type=cache,target=/usr/app/src/.npm \
     npm set cache /usr/app/src/.npm && \
     npm ci --only=production
 USER node
-COPY --chown=node:node ./src/
+COPY --chown=node:node ./src .
 EXPOSE 3000
 CMD [ "node","index.js" ]
 ```
