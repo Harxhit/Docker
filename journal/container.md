@@ -60,4 +60,4 @@
   - Build an image
   - Run and enter a container shell interactively
 
-[!Building a image](/assets/Building%20a%20image.png)
+[!Terminal screenshot of building a container](/assets/CreatingAContainer.png)
