@@ -1,7 +1,10 @@
 const fs = require("fs");
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const { Pool } = require("pg");
-databaseUrl = "Your database url";
+databaseUrl = process.env.DATABASE_URL;
 
 const pool = new Pool({
   connectionString: databaseUrl,

@@ -1,0 +1,46 @@
+services:
+  frontend:
+    image: frontend
+    build:
+      context: ../example-web-application/client-react/
+      dockerfile: ./Dockerfile
+    networks:
+      - frontend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
+  api-node:
+    image: api-node
+    build:
+      context: ../example-web-application/api-node/
+      dockerfile: ./Dockerfile.2
+    init: true
+    environment:
+      - DATABASE_URL=${DATA_BASE_URL}
+    depends_on:
+      - db
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  db:
+    image: postgres:15.1-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - backend
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
+
+networks:
+  frontend:
+  backend:
