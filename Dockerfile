@@ -1,12 +1,13 @@
-FROM ubuntu:latest
+FROM node:20-alpine
 
-RUN echo 'Installing dependencies'
+WORKDIR /usr/src/app
 
-RUN apt update 
+COPY package*.json ./
 
-RUN apt install nodejs npm
+RUN npm install
 
 COPY . .
 
-CMD [ "npm","run","dev" ]
+EXPOSE 3000 9229
 
+CMD ["npm", "run", "dev"]  
