@@ -4,6 +4,6 @@ RUN echo 'Installing dependencies'
 
 RUN apt update && apt install nodejs npm
 
-COPY . .
+COPY . . 
 
 CMD [ "npm","run","dev" ]

@@ -27,8 +27,8 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v5
         with: 
-          context: ../development-workflow/api-node
-          file: ./Dockerfile.2
+          context: .
+          file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
       - name: Run test on image
