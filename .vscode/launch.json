@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Docker debugger",
+            "processId": "${command:PickProcess}",
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+
+        {
+            "name": "Containers: Node.js Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "platform": "node",
+            "node": {
+                "package": "${workspaceFolder}/05-development-workflow/api-node/package.json",
+                "localRoot": "${workspaceFolder}/05-development-workflow/api-node"
+            }
+        }
+    ]
+}

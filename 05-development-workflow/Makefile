@@ -22,9 +22,7 @@ compose-up-debug-build:
 compose-down:
 	docker compose -f $(DEV_COMPOSE_FILE) down
 
-DOCKERCONTEXT_DIR=../05-example-web-application/
 
 .PHONY: run-tests
 run-tests:
-	docker compose -f $(DEV_COMPOSE_FILE) -f $(TEST_COMPOSE_FILE) run --build api-golang
 	docker compose -f $(DEV_COMPOSE_FILE) -f $(TEST_COMPOSE_FILE) run --build api-node

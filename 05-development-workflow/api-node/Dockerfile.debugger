@@ -1,0 +1,15 @@
+FROM node:20-alpine
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+USER node
+
+COPY --chown=node:node . . /usr/src/app/
+
+EXPOSE 3000 9229
+
+CMD ["node", "--inspect=0.0.0.0:9229", "src/index.js"]
