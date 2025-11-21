@@ -1,5 +1,5 @@
 FROM node:20-alpine
 
-RUN npm install
+RUN npm install -y
 
 CMD ["npm", "run", "dev"]  
