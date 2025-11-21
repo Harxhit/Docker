@@ -33,5 +33,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
       - name: Run test on image
         run: |
-          docker run -it harxhitttt/image-ci:latest 
-          node -v
+          docker run --rm harxhitttt/image-ci:latest node -v
+        
